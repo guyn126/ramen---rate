@@ -1,4 +1,3 @@
-// Stub de données des ramens
 const ramens = [
   {
     id: 1,
@@ -24,10 +23,10 @@ const ramens = [
   },
 ];
 
-// Fonction pour afficher les images des ramens
+// Function to show ramen image
 function displayRamens() {
   const ramenMenu = document.getElementById("ramen-menu");
-  ramenMenu.innerHTML = ""; // Nettoyer avant d'afficher
+  ramenMenu.innerHTML = "";
 
   ramens.forEach((ramen) => {
     const img = document.createElement("img");
@@ -38,7 +37,7 @@ function displayRamens() {
   });
 }
 
-// Fonction pour afficher les détails du ramen sélectionné
+// Function to show ramen details
 function handleClick(ramen) {
   const detailContainer = document.getElementById("ramen-detail");
   document.getElementById("ramen-name").textContent = ramen.name;
@@ -53,7 +52,7 @@ function handleClick(ramen) {
   detailContainer.classList.remove("hidden");
 }
 
-// Fonction pour gérer l'ajout d'un nouveau ramen
+// Function to add new ramen
 function addSubmitListener() {
   document
     .getElementById("ramen-form")
@@ -88,16 +87,14 @@ function addSubmitListener() {
 
       reader.readAsDataURL(imageUpload);
 
-      // Réinitialiser le formulaire
       this.reset();
     });
 }
 
-// Fonction principale pour initialiser l'application
 function main() {
   displayRamens();
   addSubmitListener();
 }
 
-// Attendre que le DOM soit chargé avant d'exécuter `main`
+// wait the DOM must be execute in `main`
 document.addEventListener("DOMContentLoaded", main);
